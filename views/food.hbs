@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Recipe</title>
+    <style>
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+        }
+
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #F2F2F2;
+        }
+
+        .row {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 20px 0;
+        }
+
+        .col-md-6 {
+          width: 50%;
+          padding: 0 10px;
+        }
+
+        img {
+          max-width: 100%;
+          border-radius: 8px;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+          margin-bottom: 10px;
+        }
+
+        .nutritional-info {
+          border: 1px solid #B2DFDB;
+          border-radius: 8px;
+          padding: 20px;
+          margin-bottom: 20px;
+          background-color: #E0F2F1;
+        }
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+
+        li {
+          display: flex;
+          flex-wrap: wrap;
+          flex: 1;
+          margin: 5px;
+          padding: 5px;
+          border-radius: 8px;
+          border: 1px solid #B2DFDB;
+          background-color: #E0F2F1;
+          color: #333;
+        }
+
+        .card {
+          border: 1px solid #B2DFDB;
+          border-radius: 8px;
+          margin-bottom: 20px;
+          background-color: #E0F2F1;          
+        }
+
+        .card-header {
+          background-color: #B2DFDB;
+          padding: 10px;
+          border-top-left-radius: 8px;
+          border-top-right-radius: 8px;
+        }
+
+        .list-group-item {
+          border: none;
+          padding: 10px;
+        }
+
+        .horizontal {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        .list-group-item {
+          flex: 0 0 auto;
+          margin-right: 10px;
+        }
+
+        .ing-container {
+          display: flex;
+          align-items: center;
+        }
+    </style>
+  </head>
+  <body>
+    <section>
+      <div class="row">
+        <div class="col-md-6">
+          <img src="{{recipe.image}}" alt="{{recipe.title}}">
+        </div>
+        <div class="col-md-6">
+          <h1>{{recipe.title}}</h1>
+          <p>{{{recipe.summary}}}</p>
+          <p><strong>Dish Type:</strong> {{recipe.dishTypes}}</p>
+        </div>
+      </div>
+    </section>
+    <div class="nutritional-info">
+      <h2>Nutritional Information</h2>
+      <ul>
+        <li>vegetarian: {{recipe.vegetarian}}</li>
+        <li>vegan: {{recipe.vegan}}</li>
+        <li>glutenFree: {{recipe.glutenFree}}</li>
+        <li>dairyFree: {{recipe.dairyFree}}</li>
+        <li>veryHealthy: {{recipe.veryHealthy}}</li>
+        <li>cheap: {{recipe.cheap}}</li>
+        <li>veryPopular: {{recipe.veryPopular}}</li>
+        <li>sustainable: {{recipe.sustainable}}</li>
+        <li>gaps: {{recipe.gaps}}</li>
+        <li>preparationMinutes: {{recipe.preparationMinutes}}</li>
+        <li>cookingMinutes: {{recipe.cookingMinutes}}</li>
+        <li>pricePerServing: Rs. {{recipe.pricePerServing}}</li>
+      </ul>
+    </div>
+    <div class="col-md-6 card">
+      <div class="card-header">
+        <h2>Ingredients</h2>
+      </div>
+      <div class="card-body">
+  <ul class="list-group horizontal">
+    {{#each ingredients}}
+    <li class="list-group-item">
+      <div class="ing-container">
+        <div>
+          <h5>{{name}}</h5>
+          <p>{{amount}} {{unit}}</p>
+        </div>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</div>
+
+
+    </div>
+  </body>
+</html>

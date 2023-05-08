@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Food Items</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1 class="app-name">food finder</h1>
+    <form method="GET" action="/">
+        <input type="text" name="query" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+
+
+    <div class="container">
+        {{#each foodItems}}
+        <div class="card">
+            <img class="card-image" src="{{image}}" alt="{{title}}" onclick="renderDetails('{{id}}')">
+            <div class="card-content">
+                <h2 class="card-title">{{title}}</h2>
+                <p class="foodId">{{id}}</p>
+                <button class="add-to-favorites">&#10084;</button>
+            </div>
+        </div>
+        {{/each}}
+    </div>
+
+    <script>
+        function renderDetails(id) {
+            window.location.href = `/food/details/${id}`
+        }
+        const favoriteButtons = document.querySelectorAll('.add-to-favorites');
+        let favorites = []
+        // Attach an event listener to each button
+        favoriteButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.classList.toggle('active');
+                const title = document.querySelector('.card-title').textContent;
+                const image = document.querySelector('.card-image').src;
+                const foodItem = { title, image };
+                favorites.push(foodItem);
+                console.log(favorites)
+            });
+        });
+    </script>
+
+</body>
+
+</html>

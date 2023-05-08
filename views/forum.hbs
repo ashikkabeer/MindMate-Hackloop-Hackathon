@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Forum</title>
+    {{!-- <link rel="stylesheet" type="text/css" href="style.css"> --}}
+    <style>
+        /* Reset styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Page styles */
+body {
+  background-color: #e5f3f3;
+  font-family: Arial, sans-serif;
+  text-align: center;
+}
+
+/* Header styles */
+header {
+  background-color: #1d3e65;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 36px;
+  font-weight: bold;
+  text-shadow: 1px 1px #333;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #3d95b8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+  background-color: #327f9e;
+}
+
+/* Forum container styles */
+.forum-container {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.post-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.post {
+  background-color: #d6e9c6;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 5px;
+  width: 100%;
+}
+
+.post-author {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.post-date {
+  font-size: 12px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.post-content {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 20px;
+  width: 100%;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+input[type="text"],
+textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+button {
+  background-color: #3d95b8;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+  background-color: #327f9e;
+}
+
+    </style>
+ </head>   
+  <body>
+    <header>
+      <div class="logo">Forum</div>
+      <a class="button" href="#">Log in</a>
+    </header>
+    <div class="forum-container">
+      <h1>Welcome to the forum!</h1>
+      <div class="post-container">
+        {{#each posts}}
+        <div class="post">
+          <div class="post-author">{{posts.author}}</div>
+          {{!-- <div class="post-date">{{date}}</div> --}}
+          <div class="post-content">{{posts.content}}</div>
+        </div>
+        {{/each}}
+      </div>
+      <form method="post" action="/forum">
+        <label for="author">Name</label>
+        <input type="text" id="author" name="author" required>
+        <label for="content">Post</label>
+        <textarea id="content" name="content" required></textarea>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+

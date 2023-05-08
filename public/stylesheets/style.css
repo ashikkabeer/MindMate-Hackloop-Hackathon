@@ -1,0 +1,120 @@
+body {
+  background-color: #F4F7F5;
+  font-family: Arial, sans-serif;
+}
+
+.app-name {
+  font-family: cursive;
+  background-image: linear-gradient(to right, #33CCCC, #66CC99);
+  background-clip: text;
+  fill-opacity: transparent;
+  text-align: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 90px;
+  height: 150px;
+  border: 1px solid #C5C5C5;
+  border-radius: 10px;
+  padding: 10px;
+  display: inline-block;
+  margin: 10px;
+  background-color: #FFFFFF;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.card-image {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-content {
+  font-size: 10px;
+  margin: 0;
+}
+
+.card-title {
+  font-size: 12px;
+  margin: 5px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-nutrients {
+  margin-bottom: 10px;
+}
+
+.card-nutrient {
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.card-nutrient-label {
+  font-weight: bold;
+  font-size: 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+}
+
+.add-to-favorites.active {
+  color: #FF7F50;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px 0 0 5px;
+  background-color: #FFFFFF;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #00CC99;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+/* Additional color options */
+.card-image-overlay {
+  background-color: rgba(51, 153, 153, 0.5);
+}
+
+.card-image-overlay:hover {
+  background-color: rgba(51, 153, 153, 0.8);
+}
+
+.card-nutrient.protein {
+  color: #33CCCC;
+}
+
+.card-nutrient.fat {
+  color: #66CC99;
+}
+
+.card-nutrient.carbs {
+  color: #FF7F50;
+}

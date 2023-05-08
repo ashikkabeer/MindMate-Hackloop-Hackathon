@@ -1,0 +1,28 @@
+{
+  "name": "mindmate",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "dependencies": {
+    "@tensorflow/tfjs": "^4.4.0",
+    "axios": "^1.4.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-openid-connect": "^2.15.0",
+    "hbs": "~4.0.4",
+    "http-errors": "~1.6.3",
+    "mongodb": "^5.3.0",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.22",
+    "onnxjs": "^0.1.8",
+    "openai": "^3.2.1",
+    "passport": "^0.6.0"
+  },
+  "devDependencies": {
+    "@tensorflow/tfjs-core": "^4.4.0"
+  }
+}

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>mindmate</title>
+    <style>
+      body {
+        background-color: #B6D8B6;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #D2B48C;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 10px 20px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+         display: flex;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: bold;
+        color: #444444;
+      }
+
+      .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px;
+        justify-content: center;
+      }
+
+      .card {
+        background-color: #8AB8CC;
+        border-radius: 10px;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin: 10px;
+        height: 100px;
+        width: 200px;
+        overflow:hidden;
+      }
+      p {
+        font-size: 14px;
+        line-height: 1.2;
+        margin-bottom: 0;
+        color: #000000 ;
+        font-weight: bold;
+      }
+      .header-right {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  text-align: center;
+  align-items: center;
+}
+
+.assistant-btn {
+  background-color: #B0C4DE;
+  border: none;
+  border-radius: 5px;
+  color: #444444;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.food-btn {
+  background-color: #B0C4DE;
+  border: none;
+  border-radius: 5px;
+  color: #444444;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.community-btn {
+  background-color: #B0C4DE;
+  border: none;
+  border-radius: 5px;
+  color: #444444;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+}
+.food-btn:hover {
+  background-color: #D2B48C;
+}
+.community-btn: :hover {
+  background-color: #D2B48C;
+}
+.assistant-btn:hover {
+  background-color: #D2B48C;
+}
+.quotes-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #D2B48C;
+  padding: 10px 20px;
+}
+
+.quotes {
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  font-size: 20px;
+  color: #444444;
+  margin: 0;
+}
+
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">mindmate</div>
+      <img class="logo" src="/public/images/Maskgroup.png">
+    </header>
+    <div class="header-right">
+    <h2>Common Symptoms</h2>
+    <button class="assistant-btn" id="chat-button">Chat Mate</button>
+    <button class="food-btn" id="food-button">Meal Mate</button>
+    <button class="community-btn" id="community-button">Community</button>
+  </div>
+    </div>
+    <div class="quotes-container">
+      <p class="quotes">{{quote}}</p>
+    </div>
+    <div class="card-container">
+
+      {{#each data}}
+        <div class="card">
+          <p>{{this}}</p>
+        </div>
+      {{/each}}
+
+    </div>
+    <script>
+  const chatButton = document.getElementById("chat-button");
+  chatButton.addEventListener("click", () => {
+    window.location.href = "/chat";
+  })
+    const foodButton = document.getElementById("food-button");
+  foodButton.addEventListener("click", () => {
+    window.location.href = "/food";
+  });
+  const communityButton = document.getElementById("community-button");
+  communityButton.addEventListener("click", () => {
+    window.location.href = "/forum";
+  });
+</script>
+
+
+  </body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Chat Interface</title>
+
+    <style>
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 60%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.chat-bubble {
+  display: inline-block;
+  border-radius: 20px;
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  max-width: 70%;
+}
+
+.bot {
+  background-color: #D4EEE2;
+  align-self: flex-start;
+}
+
+.user {
+  background-color: #E5F5DC;
+  align-self: flex-end;
+}
+
+.chat-form {
+  margin-top: 10px;
+}
+
+.chat-form input[type="text"] {
+  width: 70%;
+  padding: 10px;
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.chat-form button[type="submit"] {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  outline: none;
+}
+
+.chat-form button[type="submit"]:hover {
+  background-color: #3E8E41;
+}
+
+    </style>
+
+
+</head>
+<body>
+  <div class="container">
+    <div class="chat-container">
+      {{#each chatMessages}}
+        {{#if this.isBot}}
+          <div class="chat-bubble bot">
+            <p>{{this.message}}</p>
+          </div>
+        {{else}}
+          <div class="chat-bubble user">
+            <p>{{this.message}}</p>
+          </div>
+        {{/if}}
+      {{/each}}
+    </div>
+    <form class="chat-form" action="/chat" method="POST">
+      <input type="text" name="message" placeholder="Type your message...">
+      <button type="submit">Send</button>
+    </form>
+  </div>
+</body>
+</html>
